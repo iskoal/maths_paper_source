@@ -1,0 +1,456 @@
+\documentclass[amsthm]{elsart}
+\usepackage{amsmath}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\usepackage{ifpdf}
+\usepackage{graphicx,amssymb,lineno}
+\usepackage{subfig}
+\usepackage{longtable,psfrag}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{mathrsfs}
+\usepackage{latexsym,lineno}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{fleqn}
+\usepackage{verbatim}\usepackage{epsf}
+\usepackage{amsthm}\usepackage{graphicx, float}\usepackage{graphicx}
+\usepackage{amsfonts}\usepackage{amssymb}\usepackage{graphpap}
+\usepackage{epic}\usepackage{curves}
+\ifpdf
+\usepackage[%
+  pdftitle={Instructions for use of the document class
+    elsart},%
+  pdfauthor={Simon Pepping},%
+  pdfsubject={The preprint document class elsart},%
+  pdfkeywords={instructions for use, elsart, document class},%
+  pdfstartview=FitH,%
+  bookmarks=true,%
+  bookmarksopen=true,%
+  breaklinks=true,%
+  colorlinks=true,%
+  linkcolor=blue,anchorcolor=blue,%
+  citecolor=blue,filecolor=blue,%
+  menucolor=blue,pagecolor=blue,%
+  urlcolor=blue]{hyperref}
+\else
+\usepackage[%
+  breaklinks=true,%
+  colorlinks=true,%
+  linkcolor=blue,anchorcolor=blue,%
+  citecolor=blue,filecolor=blue,%
+  menucolor=blue,pagecolor=blue,%
+  urlcolor=blue]{hyperref}
+\fi
+
+
+%\renewcommand\figurename{}
+
+
+\renewcommand\floatpagefraction{.2}
+\makeatletter
+\def\elsartstyle{%
+    \def\normalsize{\@setfontsize\normalsize\@xiipt{14.5}}
+    \def\small{\@setfontsize\small\@xipt{13.6}}
+    \let\footnotesize=\small
+    \def\large{\@setfontsize\large\@xivpt{18}}
+    \def\Large{\@setfontsize\Large\@xviipt{22}}
+    \skip\@mpfootins = 18\p@ \@plus 2\p@
+    \normalsize
+}
+\@ifundefined{square}{}{\let\Box\square}
+\makeatother
+
+\def\file#1{\texttt{#1}}
+
+\pagestyle{plain}
+\newcounter{Fig}%
+
+\begin{document}
+
+\begin{frontmatter}
+\title{The $A_{\alpha}$-spectral radius of a connected graph when vertices  are removed }
+
+\journal{~~}
+
+\author[CW]{Tao She}\ead{28810707@qq.com},
+\author[CW]{Chunxiang Wang}\ead{wcxiang@mail.ccnu.edu.cn}
+
+
+
+\address[CW]{ School of Mathematics and Statistics, Central China Normal University, Wuhan,  P.R. China}
+
+
+
+\corauth[cor]{Corresponding author:  chunxiang Wang}
+
+
+
+
+\begin{abstract}
+This paper gives several results about the spectral radius of the $A \alpha$-matrix of a
+graph in which m vertices are removed. Finally, we prove that
+\begin{equation*}
+\rho _\alpha (G - v_k)
+  \geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{\rho _\alpha - \alpha d_k}
+\end{equation*}
+
+\vskip 2mm \noindent {\bf Keywords:}
+Spectral radius
+Eigenvalue
+Eigenvector
+Adjacency matrix
+
+{\bf AMS subject classification:}
+
+
+\end{abstract}
+
+
+\end{frontmatter}
+
+\section{Introduction}
+intro
+\section{Preliminary}
+\qquad Let $G$ be a graph with adjacency matrix $A(G)$, and $D(G)$ be the diagonal matrix of its vertex degrees. In  \cite{2016Merging}, it was proposed to study the family of matrices $A_\alpha(G)$ defined for any real $\alpha\in[0,1]$ as
+$A_\alpha(G) = \alpha D(G) + (1 - \alpha)A(G)$.
+And $\rho_1(A_\alpha(G))$ is called the $A_\alpha$-spectral radius of $G$. The corresponding eigenvector of $\rho_1(A_\alpha(G))$ is $x$, normalized such that $x^{T} x = 1$.
+Let $A_\alpha$ = $A_\alpha(G)$, $\rho_\alpha$ = $\rho_1(A_\alpha(G))$.
+
+\qquad Let $V_m$ denotes the subset of $V(G)$ which contains $m$ vertices, $V_m=\{v_{i_1}, v_{i_2}, \cdots, v_{i_n}\}$. For $v_k \in$ $V(G)$, the degree $d_G(v_k)$ of $v_k$ is the number of vertices which are adjacent to $v_k$ in G. We write $d_k$ for $d_G(v_k)$ if there
+is no ambiguity. $N_G(v_i)$ is the neighbor set of $v_i$ in graph $G$.
+Let $G_m = (G - V_m) \bigcup V_m$ be a subgraph from $G$ by changing $V_m$ to be an independent set of $G$.
+And $\rho_1(A_\alpha(G_m))$ is called the $A_\alpha$-spectral radius of $G_m$.
+The corresponding eigenvector of $\rho_1(A_\alpha(G_m))$ is
+$\omega$, normalized such that $\omega^{T} \omega = 1$.
+
+\section{Main Results}
+\begin{theorem}
+For any graph $G$ and corresponding graph $G - V_m$, obtained from $G$ by removing
+the set $V_m$ of $m$ vertices, it holds that
+\begin{eqnarray} \label{equ:1}
+\nonumber \big(1 - 2\sum \limits_{v_i \in V_m}^{} x_i^{_2} \big) \rho_\alpha
++ \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij}x_ix_j
+- \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2
+\\ \nonumber \leqslant \rho_\alpha(G - V_m) \qquad \;\,
+\\  \leqslant  \rho_\alpha - \alpha \sum \limits_{v_s \notin V_m}^{} c_s \omega_s^2.
+\end{eqnarray}
+where $x$ is the eigenvector of $A_\alpha$ corresponding to the largest eigenvalue $\rho_\alpha$, and $\quad c_s = |N_G(v_s) \bigcap V_m|, \quad 0\leqslant c_s \leqslant m$. In particular, if $m$ = 1, then
+\begin{eqnarray} \label{equ:2}
+(1 - 2x_k^{_2})\rho_\alpha
++ \alpha \big(d_k x_k^2 - \sum \limits_{v_i \sim v_k}^{} x_i^2 \big)
+\leqslant \rho_\alpha(G - v_k)
+\leqslant  \rho_\alpha - \alpha \sum \limits_{v_i \sim v_k}^{} \omega_i^2.
+\end{eqnarray}
+\end{theorem}
+\begin{proof}
+Suppose $a_{ij}$ is the ($i$)th row ($j$)th column element of $A_\alpha$,  $a_{ij}^{\prime}$ is the ($i$)th row ($j$)th column element of $A_\alpha(G_m)$, then
+
+\begin{eqnarray*}
+ a_{ij}^{\prime} =
+\left\{
+\begin{aligned}
+&a_{ij}    && if \quad i \neq j \\
+&a_{ii} - \alpha c_i    && if \quad i = j \quad and \quad v_i \notin V_m   \\
+&0    && if \quad i = j \quad and \quad v_i \in V_m \\
+\end{aligned}
+\right.
+\end{eqnarray*}
+
+After removing a vertex $v_k$ from graph $G$, we obtain $A_\alpha(G - v_k)$,
+ which is a $(n - 1) \times (n - 1)$ matrix, \\
+
+\begin{eqnarray*}
+A_\alpha(G - v_k) =
+\begin{pmatrix}
+a_{11}^{\prime} & \cdots & a_{1(k-1)} & a_{1(k+1)} & \cdots & a_{1n}\\
+\vdots & {} & \vdots \vdots & {} & \vdots \\
+a_{(k-1)1} & \cdots & a_{(k-1)(k-1)}^{\prime} & a_{(k-1)(k+1)} & \cdots & a_{(k-1)n}\\
+a_{(k+1)1} & \cdots & a_{(k+1)(k-1)} & a_{(k+1)(k+1)}^{\prime} & \cdots & a_{(k+1)n}\\
+\vdots & {} & \vdots \vdots & {} & \vdots \\
+a_{n1} & \cdots & a_{n(k-1)} & a_{n(k+1)} & \cdots & a_{nn}^{\prime}\\
+\end{pmatrix} \\
+\end{eqnarray*}
+
+Consider the $n \times n$ matrix, \\
+\begin{eqnarray*}
+A_\alpha(G_1) \;\;=\;\;
+\begin{pmatrix}
+a_{11}^{\prime} & \cdots & a_{1(k-1)} & 0 & a_{1(k+1)} & \cdots & a_{1n} \\
+\vdots & {} & \vdots & \vdots & \vdots & {} & \vdots \\
+a_{(k-1)1} & \cdots & a_{(k-1)(k-1)}^{\prime} & 0 & a_{(k-1)(k+1)} & \cdots & a_{(k-1)n} \\
+0 & \cdots & 0 & 0 & 0 & \cdots & 0 \\
+a_{(k+1)1} & \cdots & a_{(k+1)(k-1)} & 0 & a_{(k+1)(k+1)}^{\prime} & \cdots & a_{(k+1)n} \\
+\vdots & {} & \vdots & \vdots & \vdots & {} & \vdots \\
+a_{n1} & \cdots & a_{n(k-1)} & 0 & a_{n(k+1)} & \cdots & a_{nn}^{\prime} \\
+\end{pmatrix} \\
+\end{eqnarray*}
+
+which has the same largest eigenvalue as $A_\alpha(G - v_k)$. In fact, all eigenvalues of $A_\alpha(G - v_k)$ are the same as in
+$A_\alpha(G_1)$, that possesses an additional zero eigenvalue.
+
+
+Let $B$ be a diagonal matrix, $B =$ diag(
+$\alpha c_1, \alpha c_2, $ $ \cdots,$ $ \alpha c_{k-1}, - \alpha d_{k}, $ $ \alpha c_{k+1},$ $  \cdots, $ $\alpha c_n )$,
+ then $A_\alpha$ - $A_\alpha(G_1)$ = $a_ke_k^T + e_ka_k^T + B$, where $a_k$ is the column vector $(a_{k1}, a_{k2}, \cdots , a_{kn})^T$ and $e_k$ is the kth basis column vector $(0, 0, \cdots , 0, 1, 0, \cdots , 0)^T$,
+ where only the $k$th component is 1. We have \\
+\begin{eqnarray*}
+x^T(A_\alpha - A_\alpha(G_1))x
+&&= x^T (a_k e_k^T + e_k a_k^T + B) x
+\\ &&= x^T a_k e_k^T x + x^T e_k a_k^T x + x^T B x \\
+\\ &&= 2x_k \sum \limits_{i=1}^{n}x_ia_{ki} + \alpha \big(\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 \big)
+\\ &&= 2 \rho_\alpha x_k^2 + \alpha \big(\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 \big) 
+\end{eqnarray*}
+\qquad By Rayleigh principle, we get that  $x^{T}A_\alpha(G_1)x  \leqslant  \rho_\alpha(G_1)$ for any $n \times 1$ vector $x$ with $x^{T} x = 1$
+, hence 
+\begin{eqnarray*}
+\rho_\alpha(G - v_k)
+&&= \rho_\alpha(G_1)
+\\ &&\geqslant x^T A_\alpha(G_1) x
+\\ &&= x^T A_\alpha x - x^T(A_\alpha - A_\alpha(G_1))x
+\\ &&= \rho_\alpha - \Big( 2 \rho_\alpha x_k^2 + \alpha (\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 )\Big)
+\\ &&= ( 1 -2 x_k^2)\rho_\alpha + \alpha (d_k x_k^2 - \sum \limits_{v_i \sim v_k}^{} x_i^2 )
+\end{eqnarray*}
+Similarly as above, we have \\
+\begin{eqnarray*}
+\rho_\alpha
+&&\geqslant \omega ^T A_\alpha \omega
+\\ &&= \omega ^T A_\alpha(G_1) \omega + \omega^T (A_\alpha - A_\alpha(G_1)) \omega
+\\ &&= \rho_\alpha(G_1) + \omega^T (a_k e_k^T + e_k a_k^T + B) \omega
+\\ &&= \rho_\alpha(G - v_k) + \omega^T a_k e_k^T \omega + \omega^T e_k a_k^T \omega + \omega^T B \omega
+\\ &&= \rho_\alpha(G - v_k)
+  + 2\omega_k \sum \limits_{i=1}^{n}\omega_i a_{ki}
+  + \omega^T B \omega
+\\ &&= \rho_\alpha(G - v_k)
+  + 0 \times \sum \limits_{i=1}^{n}\omega_i a_{ki}
+  + \alpha  (\sum \limits_{v_i \sim v_k}^{} \omega_i^2 - d_k \omega_k^2 )
+\\ &&= \rho_\alpha(G - v_k) + \alpha \sum \limits_{v_i \sim v_k}^{} \omega_i^2
+\end{eqnarray*}
+
+\qquad Next, we extend inequality (2) in case $m$ vertices are removed,
+\begin{eqnarray*}
+  &&x^T(A_\alpha - A_\alpha(G_m))x
+\\ = &&x^T \Big(\sum \limits_{v_k \in V_m}^{} (a_k e_k^T + e_k a_k^T)
+- \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} e_i e_j \Big) x
++ \sum \limits_{v_s \notin V_m}^{} \alpha c_s x_s^2
+\end{eqnarray*}
+and obtain \\
+\begin{eqnarray}
+\nonumber \rho_\alpha(G - V_m)
+&&= \rho_\alpha(G_m)
+\\ \nonumber &&\geqslant x^T A_\alpha(G_m) x
+\\ \nonumber &&= x^T A_\alpha x - x^T(A_\alpha - A_\alpha(G_m))x
+\\ \label{equ:8} &&= \rho_\alpha
+   - 2 \rho_\alpha \sum \limits_{v_k \in V_m}^{} x_k^2
+   + \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j
+   - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2
+\end{eqnarray}
+Similarly as above, we have
+\begin{eqnarray*}
+\rho_\alpha
+&&\geqslant \omega ^T A_\alpha \omega \\
+\\ &&= \omega ^T A_\alpha(G_m) \omega + \omega^T (A_\alpha - A_\alpha(G_m)) \omega \\
+\\ &&= \rho_\alpha(G_m) + \omega^T \Big(\sum \limits_{v_k \in V_m}^{} (a_k e_k^T + e_k a_k^T)
+  - \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} e_i e_j \Big) \omega
+  + \sum \limits_{v_s \notin V_m}^{} \alpha c_s \omega_s^2 \\
+\\ &&= \rho_\alpha(G - V_m)
+  + 2 \sum \limits_{v_k \in V_m}^{} \omega_k \sum \limits_{i=1}^{n}\omega_i a_{ki}
+  - \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} \omega_i \omega_j
+  + \alpha \sum \limits_{v_s \notin V_m}^{} c_s \omega_s^2 \\
+\end{eqnarray*}
+With $\omega_i = 0$ if $v_i \in V_m$, we have 
+\begin{eqnarray} \label{equ:9}
+\rho_\alpha
+\geqslant \rho_\alpha(G - V_m) + \alpha \sum \limits_{v_s \notin V_m}^{} c_s \omega_s^2 
+\end{eqnarray}
+By inequality (\ref{equ:8}) and (\ref{equ:9}), we get the inequality (\ref{equ:1}).
+\end{proof}
+
+
+
+\begin{lemma}
+In any graph $G$, $x$ is the non-negative eigenvector of $A_\alpha (G)$ corresponding to the largest eigenvalue $\rho _\alpha$, with $x^T x = 1$, and $x_k$ is the $k$th component of $x$. $V_m$ is a subset
+of $V(G)$ which contains $m$ vertices. Then
+\begin{equation} \label{equ:11}
+\sum \limits_{v_k \in V_m}^{} x_k^2
+\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2 \Big)
+\end{equation}
+
+where $ c_s = |N_G(v_s) \bigcap V_m|$,  $0\leqslant c_s \leqslant m$.
+\\ In particular, if $m = 1$, then 
+
+\begin{equation} \label{equ:12}
+ x_k^2 \leqslant \frac{\rho_\alpha}{2 \rho_\alpha - \alpha d_k}
+\end{equation}
+\end{lemma}
+\begin{proof}
+By the proof of theorem 1, we have 
+\begin{eqnarray*}
+x^T A_\alpha(G_m) x  
+&&= x^T A_\alpha x - x^T(A_\alpha - A_\alpha(G_m))x 
+\\ &&= \rho_\alpha
+   - 2 \rho_\alpha \sum \limits_{v_k \in V_m}^{} x_k^2
+   + \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j
+   - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2
+\\ &&> 0
+\end{eqnarray*}
+Hence 
+\begin{eqnarray*}
+\sum \limits_{v_k \in V_m}^{} x_k^2
+\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2 \Big)
+\end{eqnarray*}
+In particular, if $m$ = 1, then 
+\begin{eqnarray*}
+x^T A_\alpha(G_1) x 
+&&= x^T A_\alpha x - x^T(A_\alpha - A_\alpha(G_1))x  
+\\ &&= \rho_\alpha - \Big( 2 \rho_\alpha x_k^2 + \alpha (\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 )\Big)
+\\ &&\geqslant 0
+\end{eqnarray*}
+Hence
+\begin{eqnarray*}
+(2 \rho_\alpha - \alpha d_k ) x_k^2 
+\leqslant \rho_\alpha - \alpha \sum \limits_{v_i \sim v_k}^{} x_i^2
+\leqslant \rho_\alpha
+\end{eqnarray*}
+So we have
+\begin{eqnarray*}
+x_k^2 \leqslant \frac{\rho_\alpha} {2 \rho_\alpha - \alpha d_k} 
+\end{eqnarray*}
+\end{proof}
+
+\begin{lemma} \label{lem:2}
+In any graph $G$, $x$ is the non-negative eigenvector of $A_\alpha (G)$ corresponding to the largest eigenvalue $\rho _\alpha$, with $x^T x = 1$. $x_k$ is the $k$th component of $x$, $\mid x_k \mid < 1$, $v_k$ is  the $k$th vertex of $G$. Then 
+\begin{equation} \label{equ:13}
+\rho _\alpha (G - v_k)
+    \geqslant \rho _\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} (\rho _\alpha - \alpha d_k)
+\end{equation}
+\end{lemma}
+
+\begin{proof} 
+By inequality (\ref{equ:11}), we have 
+\begin{eqnarray*}
+\sum \limits_{v_i \in V_m}^{} x_i^2
+\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2 \Big)
+\end{eqnarray*}
+Let $\hat{x} = \{x_1, \cdots, x_{k-1}, 0, x_{k+1}, \cdots, x_n\}^T$ , whose $k$th component is 0. \\
+Let $V_m = V(G) - v_k$,  we get 
+\begin{eqnarray*}
+1 - x_k^2
+&&\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha d_k x_k^2 \Big)
+\\ &&= \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( x^T A_\alpha(G_1) x + \alpha \sum \limits_{v_i \in N(v_k)}^{} x_i^2 - \alpha d_k x_k^2 \Big) 
+\\ &&= \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \hat{x}^T A_\alpha(G_1) \hat{x} + \alpha \sum \limits_{v_i \in N(v_k)}^{} x_i^2 - \alpha d_k x_k^2 \Big) 
+\\ &&\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \rho_\alpha (G_1) \hat{x}^T \hat{x} + \alpha - \alpha  x_k^2 - \alpha d_k x_k^2 \Big)
+\\ &&= \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \rho_\alpha (G - v_k) (1 - x_k^2) + \alpha - \alpha  x_k^2 - \alpha d_k x_k^2 \Big)
+\end{eqnarray*}
+Which implies
+\begin{eqnarray*}
+  \rho_\alpha (G - v_k) \geqslant \rho_\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} ( \rho_\alpha - \alpha d_k).
+\end{eqnarray*}
+\end{proof} 
+
+\begin{lemma} \label{lem:3}
+In any graph $G$, $x$ is the non-negative eigenvector of $A_\alpha (G)$ corresponding to the largest eigenvalue $\rho _\alpha$, with $x^T x = 1$. $x_k$ is the $k$th component of $x$, $\mid \alpha \mid < 1$. Then \\
+\begin{equation} \label{equ:14}
+x_k^2 \leqslant \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2 + (1 - \alpha)^2 d_k}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Since
+\begin{eqnarray*}
+\rho _\alpha x_k = \sum \limits_{i = 1}^{n} a_{ki} x_i = (1 - \alpha) \sum \limits_{v_i \in N(v_k)}^{} x_i + \alpha d_k x_k
+\end{eqnarray*}
+We have
+\begin{eqnarray*}
+ (\rho _\alpha - \alpha d_k)^2 x_k^2 
+    &&= (1 - \alpha)^2 \big(\sum \limits_{v_i \in N(v_k)}^{} x_i \big)^2  
+    \\ &&\leqslant  (1 - \alpha)^2 d_k \sum \limits_{v_i \in N(v_k)}^{} x_i^2  
+    \\ &&\leqslant  (1 - \alpha)^2 d_k (1 - x_k^2)  
+\end{eqnarray*}
+That is
+\begin{eqnarray*}
+x_k^2 \leqslant \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2 + (1 - \alpha)^2 d_k}
+\end{eqnarray*}
+\end{proof}
+
+\begin{theorem} \label{the:4}
+In any graph $G$, $x$ is the non-negative eigenvector of $A_\alpha (G)$ corresponding to the largest eigenvalue $\rho _\alpha$, with $x^T x = 1$. $x_k$ is the $k$th component of $x$, $\mid \alpha \mid < 1$. Then \\
+\begin{equation} \label{equ:16}
+\rho _\alpha (G - v_k)
+  \geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{\rho _\alpha - \alpha d_k}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Lemma \ref {lem:2}, we obtain \\
+\begin{eqnarray} \label{equ:21}
+\rho _\alpha (G - v_k)
+    \geqslant \rho _\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} (\rho _\alpha - \alpha d_k)
+\end{eqnarray}
+By Lemma \ref {lem:3} we get
+\begin{eqnarray} \label{equ:22}
+x_k^2 \leqslant \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2 + (1 - \alpha)^2 d_k}.
+\end{eqnarray}
+\\
+Since $h(x_k) = \frac{x_k^2}{1 - x_k^2} $ is a increasing function on $x \in (0, 1)$, combining (\ref{equ:21})with (\ref{equ:22}), we have  \\
+\begin{eqnarray*}
+\rho _\alpha (G - v_k) 
+  &&\geqslant \rho _\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} (\rho _\alpha - \alpha d_k)  
+  \\ &&\geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2} (\rho _\alpha - \alpha d_k)  \\
+  \\ &&\geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{\rho _\alpha - \alpha d_k}
+.
+\end{eqnarray*}
+This completes the proof.
+\end{proof}
+
+\section{Concluding remarks}
+
+
+\vskip4mm\noindent{\bf Acknowledgements.}
+
+
+ The work was partially supported by the National Natural Science Foundation of China under Grants 11771172,12061039.
+
+
+
+
+\begin{thebibliography}{99}
+
+
+
+
+
+
+
+
+
+\bibitem{Xu20102}
+\textcolor{blue}{ K. Xu, H. Hua, A unified approach to extremal
+multiplicative Zagreb indices for trees, unicyclic and bicyclic
+graphs, MATCH Commun. Math. Comput. Chem. 68 (2012) 241-256.}
+
+\bibitem{2016Merging}
+\textcolor{blue}{
+V.~Nikiforov.
+\newblock Merging the a- and q-spectral theories.
+\newblock {Applicable Analysis \& Discrete Mathematics}, 11(1), 2016.}
+
+%\bibitem{2016Merging}
+%\textcolor{blue}{
+%V.~Nikiforov.
+%\newblock Merging the a- and q-spectral theories.
+%\newblock {\em Applicable Analysis \& Discrete Mathematics}, 11(1), 2016.}
+
+
+
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
