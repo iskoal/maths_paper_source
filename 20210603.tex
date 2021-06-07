@@ -1,0 +1,655 @@
+\documentclass[amsthm]{elsart}
+\usepackage{amsmath}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{thmWS}{Theorem WS}
+\usepackage{ifpdf}
+\usepackage{graphicx,amssymb,lineno}
+\usepackage{subfig}
+\usepackage{longtable,psfrag}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{mathrsfs}
+\usepackage{latexsym,lineno}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{fleqn}
+\usepackage{verbatim}\usepackage{epsf}
+\usepackage{amsthm}\usepackage{graphicx, float}\usepackage{graphicx}
+\usepackage{amsfonts}\usepackage{amssymb}\usepackage{graphpap}
+\usepackage{epic}\usepackage{curves}
+\ifpdf
+\usepackage[%
+  pdftitle={Instructions for use of the document class
+    elsart},%
+  pdfauthor={Simon Pepping},%
+  pdfsubject={The preprint document class elsart},%
+  pdfkeywords={instructions for use, elsart, document class},%
+  pdfstartview=FitH,%
+  bookmarks=true,%
+  bookmarksopen=true,%
+  breaklinks=true,%
+  colorlinks=true,%
+  linkcolor=blue,anchorcolor=blue,%
+  citecolor=blue,filecolor=blue,%
+  menucolor=blue,pagecolor=blue,%
+  urlcolor=blue]{hyperref}
+\else
+\usepackage[%
+  breaklinks=true,%
+  colorlinks=true,%
+  linkcolor=blue,anchorcolor=blue,%
+  citecolor=blue,filecolor=blue,%
+  menucolor=blue,pagecolor=blue,%
+  urlcolor=blue]{hyperref}
+\fi
+
+
+%\renewcommand\figurename{}
+
+
+\renewcommand\floatpagefraction{.2}
+\makeatletter
+\def\elsartstyle{%
+    \def\normalsize{\@setfontsize\normalsize\@xiipt{14.5}}
+    \def\small{\@setfontsize\small\@xipt{13.6}}
+    \let\footnotesize=\small
+    \def\large{\@setfontsize\large\@xivpt{18}}
+    \def\Large{\@setfontsize\Large\@xviipt{22}}
+    \skip\@mpfootins = 18\p@ \@plus 2\p@
+    \normalsize
+}
+\@ifundefined{square}{}{\let\Box\square}
+\makeatother
+
+\def\file#1{\texttt{#1}}
+
+\pagestyle{plain}
+\newcounter{Fig}%
+
+\begin{document}
+
+\begin{frontmatter}
+\title{The $A_{\alpha}$-spectral radius of a connected graph when vertices  are removed }
+
+\journal{~~}
+
+\author[CW]{Tao She}\ead{she\_tao@163.com},
+\author[CW]{Chunxiang Wang}\ead{wcxiang@mail.ccnu.edu.cn}
+
+
+
+\address[CW]{ School of Mathematics and Statistics, Central China Normal University, Wuhan,  P.R. China}
+
+
+
+\corauth[cor]{Corresponding author:  chunxiang Wang}
+
+
+
+
+\begin{abstract}
+$G$ is a simple connected graph with adjacency matrix $A(G)$ and degree diagonal matrix $D(G)$.
+ In 2017, Nikiforov  \cite{2016Merging} defined the matrix $A_{\alpha}(G) = \alpha D(G) + (1- \alpha)A(G)$ for $\alpha \in [0, 1].$
+The $A_\alpha$-spectral radius of $G$ is the maximum eigenvalue of $A_\alpha(G)$.
+In this paper we give the bounds of $A_\alpha$-spectral radius when m vertices are removed from $G$.
+
+\vskip 2mm \noindent {\bf Keywords:}  Spectral radius,  Eigenvalue,  Eigenvector,  Adjacency matrix
+
+{\bf AMS subject classification:}
+
+
+\end{abstract}
+
+
+\end{frontmatter}
+
+\section{Introduction}
+
+\qquad  We consider simple connected graph $G$ with vertex set $V(G)$ and edge set $E(G)$  throughout this paper.   Let $V(G)=\{v_1, v_2, \cdots, v_k, \cdots, v_n\}$. If any pair of vertices $v_i$ and $v_j$ are adjacent, then we write $v_iv_j \in E(G)$ or $v_i \thicksim v_j$. For a vertex $v_k \in V(G)$, the neighborhood of  $v_k $ is the set $N(v_k) = N_G(v_k) = \{w \in V(G), w  \thicksim  v_k   \}$, and $d_G(v_k)$  denotes the degree of $v_k$ with $ d_{G}(v_k) = |N(v_k)|$.  Let $d_k=d_G(v_k)$  if there
+is no ambiguity. For $V_m \subseteq V(G)$ with $|V_m|=m$,   let $G[V_m]$ be the subgraph of $G$ induced by $V_m$, $G - V_m$ be the subgraph induced by $V(G) - V_m$. Let $K_n, K_{s,t}$   denote the clique and complete bipartite graph respectively and  $K_{1,n-1}$ be the star of order $n$.
+
+\qquad  $A(G)$ denotes the adjacency matrix and $D(G)$ denotes the diagonal matrix of the degrees of $G$. The signless Laplacian matrix of $G$ is defined as $Q(G) = D(G)+ A(G).$ Nikiforov \cite{2016Merging} proposed the matrix  $A_{\alpha}(G)$  of a graph $G$ $$A_{\alpha}(G) = \alpha D(G) +(1-\alpha)A(G),$$ for $\alpha \in [0,1]$, which successfully extended the theories of $A(G)$ and $Q(G)$.  Let $A_\alpha$ = $A_\alpha(G)$. It is not hard to see that if $\alpha =0, A_{\alpha}$ is the adjacent matrix, and if $\alpha = \frac{1}{2}$, then $2A_{\frac{1}{2}}$ is the signless Laplacian matrix of $G$.
+
+\par \qquad  Denote  the eigenvalues of $n \times n$ matrix $M$ by $\rho_1(M) \geqslant \rho_2(M) \geqslant \cdots \geqslant \rho_n(M)$. The largest eigenvalue $\rho_\alpha := \rho_1(A_{\alpha}(G))$ of the $A_\alpha$-matrix is defined as the $A_{\alpha}$-spectral radius of $G$.
+ Let  $\textbf{x} = (x_1, x_2,x_3, \cdots,x_k, \cdots, x_n)^T$ be a unit nonnegative eigenvector of $\rho_\alpha$ corresponding to  the  vertex set $\{v_1, v_2,v_3$, $\cdots$, $v_k$, $\cdots, v_n\}$.
+ Let $G_m =(G - V_m)  \bigcup m K_1$. And $\rho_1(A_\alpha(G_m))$ is called the $A_\alpha$-spectral radius of $G_m$.
+The corresponding nonnegative eigenvector of $\rho_1(A_\alpha(G_m))$ is
+$\textbf{y}$, normalized such that $\textbf{y}^{T} \textbf{y} = 1$.
+For other undefined notations and terminologies, refer to \cite{2001Introduction}.
+
+
+
+\qquad Recently, Guo et al. \cite{2019Sharp} and Sun et al. \cite{2019A} presented a relation between $\rho(G)$ and $\rho(G- v_k)$ for adjacency matrices $A(G)$ and $A(G- v_k)$, where $v_k$ is a vertex of $G$. The better bound given by \cite{2019A} is shown as follow $$ \rho(A(G)) \leqslant \sqrt{\rho^2(A(G - v_k)) + 2 d_k - 1}. $$
+Though there are many studies of properties of
+the $A_\alpha$-matrix in the mathematical literature, we did not find a similar topic of $A_\alpha$-spectral radius of a general connected graph when vertices are removed.  Naturally, we want to study whether there are similar properties for $A_\alpha(G)$ and $A_\alpha(G-v_k)$. Inspired by the above researches, we obtain the results in this paper.
+
+
+
+\section{Main Results}
+
+The theorem of Weyl and So (see, e.g. \cite{1985MatrixAnalysis}, p. 181) is stated below:
+\begin{thmWS} \cite{1985MatrixAnalysis} Let $A$ and $B$ be Hermitian matrices of order $n$, and let $1 \leqslant i \leqslant n$ and $1 \leqslant j \leqslant n$.
+Then
+\begin{eqnarray*}
+&\rho _i (A) + \rho _j (B) \leqslant \rho _{i+j-n} (A + B), \quad &if \quad i+j \geqslant n + 1,
+\\ &\rho _i (A) + \rho _j (B) \geqslant \rho _{i+j-1} (A + B), \quad &if \quad i+j \leqslant n + 1.
+\end{eqnarray*}
+In either of these inequalities, equality holds if and only if there exists a nonzero $n$-vector that is an eigenvector to each of the three eigenvalues involved.
+\end{thmWS}
+
+From the following proposition given by Nikiforov, we know that $\textbf{x}$ is a positive eigenvector corresponding to $\rho _\alpha$ if $\alpha \in [0, 1)$.
+\begin{proposition}[Proposition 13 of \cite{2016Merging}] \label{prop:perron}
+Let $\alpha \in [0, 1)$, let $G$ be a connected graph, and let $\textbf{x}$ be a nonnegative eigenvector to $\rho( A_\alpha(G))$, then $\textbf{x}$ is positive and is unique up to scaling.
+\end{proposition}
+
+The $A_\alpha$-spectrum of $K_n$ and $K_{1,n-1}$ are given by Nikiforov as follows:
+\begin{proposition}[Proposition 36 of \cite{2016Merging}] \label{prop:3}
+The eigenvalues of $A_\alpha(K_n)$  are
+\begin{eqnarray*}
+\rho_1 (A_\alpha(K_n)) &&= n - 1 ,
+\\ \rho _k (A_\alpha(K_n)) &&= \alpha n - 1 \quad for \quad 1 < k \leqslant n .
+\end{eqnarray*}
+\end{proposition}
+
+\begin{proposition} [Proposition 38 of \cite{2016Merging}] \label{prop:1}
+The eigenvalues of $A_\alpha(K_{1,n-1})$  are
+\begin{eqnarray*}
+\rho_1 (A_\alpha(K_{1,n-1})) &&= \frac{1}{2} \big( \alpha n + \sqrt{\alpha ^2 n^2 + 4(n-1)(1-2\alpha)} \, \big)
+\\ \rho _n (A_\alpha(K_{1,n-1})) &&= \frac{1}{2} \big( \alpha n - \sqrt{\alpha ^2 n^2 + 4(n-1)(1-2\alpha)} \, \big)
+\\ \rho _k (A_\alpha(K_{1,n-1})) &&= \alpha \quad for \quad 1<k<n.
+\end{eqnarray*}
+\end{proposition}
+
+Using Theorem WS, we get the relation between $\rho _\alpha (G - v_k)$ and $\rho _\alpha (G)$.
+\begin{theorem} \label{the:0}
+Let $\alpha \in [0, 1)$, $v_k$ is a vertex of a connected graph $G$ with degree $d_k$, then
+\begin{eqnarray*}
+\rho _\alpha (G - v_k) \geqslant \rho _\alpha (G) - \frac{1}{2} \big( \alpha (d_k + 1) + \sqrt{\alpha ^2 (d_k + 1)^2 + 4 d_k (1-2\alpha)} \, \big)
+\end{eqnarray*}
+with equality holds if and only if $G \cong K_{1,n-1}$ and $d_k = n - 1$.
+\end{theorem}
+\begin{proof} Let $E_k $ denote the set of incident edges of $v_k$.
+ \\ Let $G_1 = G - E_k$, $G_1' = G - E(G_1)$,
+ then $G_1$ and $G_1'$ are spanning subgraphs of $G$, with
+ $G = G_1 \bigcup G_1'$ ,
+ $|E(G)| = |E(G_1)| + |E(G_1')|$.
+\\ It is easy to see that
+\begin{eqnarray*}
+ A(G_1) + A(G_1') \quad &&= A(G),
+\\  A_\alpha (G_1) + A_\alpha (G_1') &&= A_\alpha (G).
+\end{eqnarray*}
+ Since graph $G_1'$ is the disjoint union of $K_{1,d_k}$ and isolated vertices, by Proposition \ref{prop:1} we get $\rho _\alpha (G_1') = \rho _\alpha (K_{1,d_k}) = \frac{1}{2} \big( \alpha (d_k + 1) + \sqrt{\alpha ^2 (d_k + 1)^2 + 4 d_k (1-2\alpha)} \, \big). $
+\\ Theorem WS implies that $\rho _\alpha (G_1) + \rho _\alpha (G_1') \geqslant \rho _\alpha (G)$.
+\\ Hence
+\begin{eqnarray*}
+\rho _\alpha (G - v_k) &&= \rho _\alpha (G_1)
+\\ && \geqslant \rho _\alpha (G) - \rho _\alpha (G_1')
+\\ && = \rho _\alpha (G) - \frac{1}{2} \big( \alpha (d_k + 1) + \sqrt{\alpha ^2 (d_k + 1)^2 + 4 d_k (1-2\alpha)} \, \big).
+\end{eqnarray*}
+
+By Theorem WS, equality holds if and only if there exists a nonzero $n$-vector $\textbf{z} = (z_1, z_2,z_3, \cdots,z_k, \cdots, z_n)^T$ that is an eigenvector to each of $\rho _\alpha (G)$, $\rho _\alpha (G_1)$ and $\rho _\alpha (G_1')$. Since $\rho _\alpha (G_1) \textbf{z}$ = $A_\alpha (G_1) \textbf{z}$ \  and \ $A_\alpha (G_1)$ is a matrix as shown in (\ref{matrix:G1}), therefore  $\rho _\alpha (G_1) z_k = 0$. By proposition \ref{prop:perron}, $\textbf{z}$ is a multiple of a positive eigenvector corresponding to $\rho _\alpha (G)$. Thus $z_k \neq 0$ and $\rho _\alpha (G_1) = 0$. Hence $G_1$ must be a zero matrix. Equality holds if and only if $G \cong K_{1,n-1}$ and $d_k = n - 1$.
+\end{proof}
+
+Next we use similar methods in \cite{2012Bounds} and get the result as follow:
+\begin{theorem} \label{the:1}
+Let $\alpha \in [0, 1)$, $V_m$ is a subset of $V(G)$ with order $m$, it holds that
+\begin{eqnarray} \label{equ:1}
+\nonumber \big(1 - 2\sum \limits_{v_i \in V_m}^{} x_i^{_2} \big) \rho_\alpha
++ \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij}x_ix_j
+- \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2
+\\ \nonumber < \rho_\alpha(G - V_m) \qquad \;\,
+\\  <  \rho_\alpha - \alpha \sum \limits_{v_s \notin V_m}^{} c_s y_s^2.
+\end{eqnarray}
+where $x_i$ is the $i$th component of the positive eigenvector $\textbf{x}$ corresponding to $\rho_\alpha$ with $\textbf{x}^T\textbf{x} = 1$, $y_s$ is the $s$th component of the nonnegative eigenvector $\textbf{y}$  corresponding to $\rho_\alpha(G_m)$ with $\textbf{y}^T\textbf{y} = 1$, $ c_s = |N_G(v_s) \bigcap V_m|$, $0\leqslant c_s \leqslant m$.
+\\ In particular, if $m$ = 1, then
+\begin{eqnarray} \label{equ:2}
+(1 - 2x_k^{_2})\rho_\alpha
++ \alpha \big(d_k x_k^2 - \sum \limits_{v_i \sim v_k}^{} x_i^2 \big)
+< \rho_\alpha(G - v_k)
+<  \rho_\alpha - \alpha \sum \limits_{v_i \sim v_k}^{} y_i^2.
+\end{eqnarray}
+\end{theorem}
+\begin{proof}
+Suppose $a_{ij}$ is the ($i$)th row ($j$)th column element of $A_\alpha$,  $a_{ij}^{\prime}$ is the ($i$)th row ($j$)th column element of $A_\alpha(G_m)$, then
+
+\begin{eqnarray*}
+ a_{ij}^{\prime} =
+\left\{
+\begin{aligned}
+&0    && if \quad v_i \in V_m \quad or \quad v_j \in V_m \\
+&a_{ij}    && if \quad i \neq j  \quad and \quad v_i \notin V_m  \quad and \quad v_j \notin V_m \\
+&a_{ii} - \alpha c_i    && if \quad i = j \quad and \quad v_i \notin V_m
+\end{aligned}
+\right.
+\end{eqnarray*}
+
+After removing a vertex $v_k$ from graph $G$, we obtain $(G - v_k)$
+ with the  $(n - 1)$ $ \times (n - 1)$ $A_\alpha$-matrix, \\
+
+\begin{eqnarray*}
+A_\alpha(G - v_k) =
+\begin{pmatrix}
+a_{11}^{\prime} & \cdots & a_{1(k-1)} & a_{1(k+1)} & \cdots & a_{1n}\\
+\vdots & {} & \vdots \vdots & {} & \vdots \\
+a_{(k-1)1} & \cdots & a_{(k-1)(k-1)}^{\prime} & a_{(k-1)(k+1)} & \cdots & a_{(k-1)n}\\
+a_{(k+1)1} & \cdots & a_{(k+1)(k-1)} & a_{(k+1)(k+1)}^{\prime} & \cdots & a_{(k+1)n}\\
+\vdots & {} & \vdots \vdots & {} & \vdots \\
+a_{n1} & \cdots & a_{n(k-1)} & a_{n(k+1)} & \cdots & a_{nn}^{\prime}\\
+\end{pmatrix} \\
+\end{eqnarray*}
+
+Consider graph $G_1$ with $n \times n$ $A_\alpha$-matrix, \\
+\begin{eqnarray} \label{matrix:G1}
+A_\alpha(G_1) \;\;=\;\;
+\begin{pmatrix}
+a_{11}^{\prime} & \cdots & a_{1(k-1)} & 0 & a_{1(k+1)} & \cdots & a_{1n} \\
+\vdots & {} & \vdots & \vdots & \vdots & {} & \vdots \\
+a_{(k-1)1} & \cdots & a_{(k-1)(k-1)}^{\prime} & 0 & a_{(k-1)(k+1)} & \cdots & a_{(k-1)n} \\
+0 & \cdots & 0 & 0 & 0 & \cdots & 0 \\
+a_{(k+1)1} & \cdots & a_{(k+1)(k-1)} & 0 & a_{(k+1)(k+1)}^{\prime} & \cdots & a_{(k+1)n} \\
+\vdots & {} & \vdots & \vdots & \vdots & {} & \vdots \\
+a_{n1} & \cdots & a_{n(k-1)} & 0 & a_{n(k+1)} & \cdots & a_{nn}^{\prime}
+\end{pmatrix}
+\end{eqnarray}
+
+$A_\alpha(G_1)$ has the same largest eigenvalue as $A_\alpha(G - v_k)$. In fact, all eigenvalues of $A_\alpha(G_1)$ are the same as those of
+$A_\alpha(G - v_k)$, that possesses an additional zero eigenvalue.
+
+Recall that $ c_s = |N_G(v_s) \bigcap V_m|, \quad 0\leqslant c_s \leqslant m$.
+\\ If $V_m = \{v_k\}$, then $m = 1$,
+$
+c_s =
+\left\{
+\begin{aligned}
+&0    && if \quad v_s \notin N_G(v_k) \\
+&1    && if \quad v_s \in N_G(v_k)
+\end{aligned}
+\right.
+$.
+
+Let $B$ be a diagonal matrix, $B =$ diag(
+$\alpha c_1, \alpha c_2, $ $ \cdots,$ $ \alpha c_{k-1}, - \alpha d_{k}, $ $ \alpha c_{k+1},$ $  \cdots, $ $\alpha c_n )$,
+ then $A_\alpha$ - $A_\alpha(G_1)$ = $\textbf{a}_k\textbf{e}_k^T + \textbf{e}_k\textbf{a}_k^T + B$, where $\textbf{a}_k$ is the column vector $(a_{k1}, a_{k2}, \cdots , a_{kn})^T$ and $\textbf{e}_k$ is the $k$th basis column vector $(0, 0, \cdots , 0, 1, 0, \cdots , 0)^T$,
+ where only the $k$th component is 1. We have
+\begin{eqnarray*}
+\textbf{x}^T(A_\alpha - A_\alpha(G_1))\textbf{x}
+&&= \textbf{x}^T (\textbf{a}_k \textbf{e}_k^T + \textbf{e}_k \textbf{a}_k^T + B) \textbf{x}
+\\ &&= \textbf{x}^T \textbf{a}_k \textbf{e}_k^T \textbf{x} + \textbf{x}^T \textbf{e}_k \textbf{a}_k^T \textbf{x} + \textbf{x}^T B \textbf{x} \\
+\\ &&= 2x_k \sum \limits_{i=1}^{n}x_ia_{ki} + \alpha \big(\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 \big)
+\\ &&= 2 \rho_\alpha x_k^2 + \alpha \big(\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 \big)
+\end{eqnarray*}
+\qquad Considering the nonnegative eigenvector $\textbf{y}$ corresponding to the largest eigenvalue of $A_\alpha(G_1)$ with $\textbf{y}^T\textbf{y} = 1$. Since $A_\alpha(G_1) \textbf{y} = \rho_\alpha(G_1) \textbf{y}$, it is obvious that $y_k = 0$. Note that \textbf{x} is a positive eigenvector of $A_\alpha(G)$ with $\textbf{x}^{T} \textbf{x} = 1$ and $x_k \neq 0$. By Rayleigh's principle, we get that  $\textbf{x}^{T}A_\alpha(G_1)\textbf{x}  < \textbf{y}^{T}A_\alpha(G_1)\textbf{y} = \rho_\alpha(G_1)$
+, hence
+\begin{eqnarray}
+\nonumber \rho_\alpha(G - v_k)
+&&= \rho_\alpha(G_1)
+\\ \nonumber &&> \textbf{x}^T A_\alpha(G_1) \textbf{x}
+\\ \nonumber &&= \textbf{x}^T A_\alpha \textbf{x} - \textbf{x}^T(A_\alpha - A_\alpha(G_1))\textbf{x}
+\\ \nonumber &&= \rho_\alpha - \Big( 2 \rho_\alpha x_k^2 + \alpha (\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 )\Big)
+\\  \label{equ:6} &&= ( 1 -2 x_k^2)\rho_\alpha + \alpha (d_k x_k^2 - \sum \limits_{v_i \sim v_k}^{} x_i^2 )
+\end{eqnarray}
+Similarly as above, we have $\textbf{y}^{T} A_\alpha \textbf{y}  < \textbf{x}^{T} A_\alpha \textbf{x} = \rho_\alpha $ , then
+\begin{eqnarray}
+\nonumber  \rho_\alpha
+&&> \textbf{y} ^T A_\alpha \textbf{y}
+\\ \nonumber &&= \textbf{y} ^T A_\alpha(G_1) \textbf{y} + \textbf{y}^T (A_\alpha - A_\alpha(G_1)) \textbf{y}
+\\ \nonumber &&= \rho_\alpha(G_1) + \textbf{y}^T (\textbf{a}_k \textbf{e}_k^T + \textbf{e}_k \textbf{a}_k^T + B) \textbf{y}
+\\ \nonumber &&= \rho_\alpha(G - v_k) + \textbf{y}^T \textbf{a}_k \textbf{e}_k^T \textbf{y} + \textbf{y}^T \textbf{e}_k \textbf{a}_k^T \textbf{y} + \textbf{y}^T B \textbf{y}
+\\ \nonumber &&= \rho_\alpha(G - v_k)
+  + 2y_k \sum \limits_{i=1}^{n}y_i a_{ki}
+  + \textbf{y}^T B \textbf{y}
+\\ \nonumber &&= \rho_\alpha(G - v_k)
+  + 0 \times \sum \limits_{i=1}^{n}y_i a_{ki}
+  + \alpha  (\sum \limits_{v_i \sim v_k}^{} y_i^2 - d_k y_k^2 )
+\\ \label{equ:7}  &&= \rho_\alpha(G - v_k) + \alpha \sum \limits_{v_i \sim v_k}^{} y_i^2
+\end{eqnarray}
+
+Combining inequality (\ref{equ:6}) and (\ref{equ:7}), we complete the proof of inequality (\ref{equ:2}).
+
+Next, we extend inequality (\ref{equ:2}) in case $m$ vertices are removed,
+\begin{eqnarray*}
+  &&\textbf{x}^T(A_\alpha - A_\alpha(G_m))\textbf{x}
+\\ = &&\textbf{x}^T \Big(\sum \limits_{v_k \in V_m}^{} (\textbf{a}_k \textbf{e}_k^T + \textbf{e}_k \textbf{a}_k^T)
+- \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} \textbf{e}_i \textbf{e}_j^T \Big) \textbf{x}
++ \sum \limits_{v_s \notin V_m}^{} \alpha c_s x_s^2
+\end{eqnarray*}
+and obtain \\
+\begin{eqnarray}
+\nonumber \rho_\alpha(G - V_m)
+&&= \rho_\alpha(G_m)
+\\ \nonumber &&> \textbf{x}^T A_\alpha(G_m) \textbf{x}
+\\ \nonumber &&= \textbf{x}^T A_\alpha \textbf{x} - \textbf{x}^T(A_\alpha - A_\alpha(G_m))\textbf{x}
+\\ \label{equ:8} &&= \rho_\alpha
+   - 2 \rho_\alpha \sum \limits_{v_k \in V_m}^{} x_k^2
+   + \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j
+   - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2
+\end{eqnarray}
+Similarly as above, we have
+\begin{eqnarray*}
+\rho_\alpha
+&&> \textbf{y} ^T A_\alpha \textbf{y} \\
+\\ &&= \textbf{y} ^T A_\alpha(G_m) \textbf{y} + \textbf{y}^T (A_\alpha - A_\alpha(G_m)) \textbf{y} \\
+\\ &&= \rho_\alpha(G_m) + \textbf{y}^T \Big(\sum \limits_{v_k \in V_m}^{} (\textbf{a}_k \textbf{e}_k^T + \textbf{e}_k \textbf{a}_k^T)
+  - \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} \textbf{e}_i \textbf{e}_j^T \Big) \textbf{y}
+  + \sum \limits_{v_s \notin V_m}^{} \alpha c_s y_s^2 \\
+\\ &&= \rho_\alpha(G - V_m)
+  + 2 \sum \limits_{v_k \in V_m}^{} y_k \sum \limits_{i=1}^{n}y_i a_{ki}
+  - \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} y_i y_j
+  + \alpha \sum \limits_{v_s \notin V_m}^{} c_s y_s^2 \\
+\end{eqnarray*}
+Since $y_i = 0$ if $v_i \in V_m$, we have
+\begin{eqnarray} \label{equ:9}
+\rho_\alpha
+> \rho_\alpha(G - V_m) + \alpha \sum \limits_{v_s \notin V_m}^{} c_s y_s^2
+\end{eqnarray}
+By inequality (\ref{equ:8}) and (\ref{equ:9}), we get the inequality (\ref{equ:1}).
+\end{proof}
+
+In the following part of this section, we try to remove $x_i$ from the expression and get a new lower bound for $\rho _\alpha(G-v_k)$.
+
+\begin{lemma} \label{lem:1}
+Let $\alpha \in [0, 1)$, $v_k$ is a vertex of a connected graph $G$ with degree $d_k$, then $\rho _\alpha > \alpha d_k$.
+\end{lemma}
+\begin{proof}
+$x_i$ is the $i$th component of the positive eigenvector $\textbf{x}$ corresponding to $\rho_\alpha$. Since $x_k > 0$, $x_i > 0$, $1-\alpha > 0$ and
+\begin{eqnarray*}
+\rho _\alpha x_k = \sum \limits_{i = 1}^{n} a_{ki} x_i = (1 - \alpha) \sum \limits_{v_i \in N(v_k)}^{} x_i + \alpha d_k x_k ,
+\end{eqnarray*}
+the result is obvious.
+\end{proof}
+
+\begin{lemma}
+Let $\alpha \in [0, 1)$, $\textbf{x}$ is the positive eigenvector of $A_\alpha (G)$ corresponding to $\rho _\alpha$ with $\textbf{x}^T \textbf{x} = 1$, and $x_k$ is the $k$th component of $\textbf{x}$. Let $ c_s = |N_G(v_s) \bigcap V_m|$,  $0 \leqslant c_s \leqslant m$. Then
+\begin{equation} \label{equ:11}
+\sum \limits_{v_k \in V_m}^{} x_k^2
+\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2 \Big)
+\end{equation}
+
+with equality holds if and only if $m \geqslant n - 1$.
+\\ In particular, if $m = 1$, then
+
+\begin{equation} \label{equ:12}
+ x_k^2 \leqslant \frac{\rho_\alpha}{2 \rho_\alpha - \alpha d_k}
+\end{equation}
+\end{lemma}
+\begin{proof}
+If $m = n - 1$ or $m = n$, $G_m$ is an empty graph with $E(G_m) = \emptyset$.
+\\ By the proof of theorem \ref{the:1}, we have
+\begin{eqnarray*}
+\textbf{x}^T A_\alpha(G_m) \textbf{x}
+&&= \textbf{x}^T A_\alpha \textbf{x} - \textbf{x}^T(A_\alpha - A_\alpha(G_m))\textbf{x}
+\\ &&= \rho_\alpha
+   - 2 \rho_\alpha \sum \limits_{v_k \in V_m}^{} x_k^2
+   + \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j
+   - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2
+\\ &&\geqslant 0
+\end{eqnarray*}
+and here equality holds only if $m \geqslant n - 1$.
+\\ Hence
+\begin{eqnarray*}
+\sum \limits_{v_k \in V_m}^{} x_k^2
+\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2 \Big)
+\end{eqnarray*}
+In particular, if $m$ = 1, then
+\begin{eqnarray*}
+\textbf{x}^T A_\alpha(G_1) \textbf{x}
+&&= \textbf{x}^T A_\alpha \textbf{x} - \textbf{x}^T(A_\alpha - A_\alpha(G_1))\textbf{x}
+\\ &&= \rho_\alpha - \Big( 2 \rho_\alpha x_k^2 + \alpha (\sum \limits_{v_i \sim v_k}^{} x_i^2 - d_k x_k^2 )\Big)
+\\ &&\geqslant 0
+\end{eqnarray*}
+Hence
+\begin{eqnarray*}
+(2 \rho_\alpha - \alpha d_k ) x_k^2
+\leqslant \rho_\alpha - \alpha \sum \limits_{v_i \sim v_k}^{} x_i^2
+\leqslant \rho_\alpha
+\end{eqnarray*}
+So we have
+\begin{eqnarray*}
+x_k^2 \leqslant \frac{\rho_\alpha} {2 \rho_\alpha - \alpha d_k}
+\end{eqnarray*}
+\end{proof}
+
+\begin{lemma} \label{lem:2}
+Let $\alpha \in [0, 1)$, $\textbf{x}$ is the positive eigenvector of $A_\alpha (G)$ corresponding to $\rho _\alpha$, with $\textbf{x}^T \textbf{x} = 1$. $x_k$ is the $k$th component of $\textbf{x}$, $v_k$ is  the $k$th vertex of $G$. Then
+\begin{equation} \label{equ:13}
+\rho _\alpha (G - v_k)
+    \geqslant \rho _\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} (\rho _\alpha - \alpha d_k)
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By inequality (\ref{equ:11}), we have
+\begin{eqnarray*}
+\sum \limits_{v_i \in V_m}^{} x_i^2
+\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha \sum \limits_{v_s \notin V_m}^{} c_s x_s^2 \Big)
+\end{eqnarray*}
+Let $\hat{\textbf{x}} = \{x_1, \cdots, x_{k-1}, 0, x_{k+1}, \cdots, x_n\}^T$ , whose $k$th component is 0. \\
+Let $V_m = V(G) - v_k$,  we get
+\begin{eqnarray*}
+1 - x_k^2
+&&= \sum \limits_{v_i \in V_m}^{} x_i^2
+\\ &&\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \sum \limits_{v_i \in V_m}^{} \sum \limits_{v_j \in V_m}^{} a_{ij} x_i x_j - \alpha d_k x_k^2 \Big)
+\\ &&= \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \textbf{x}^T A_\alpha(G_1) \textbf{x} + \alpha \sum \limits_{v_i \in N(v_k)}^{} x_i^2 - \alpha d_k x_k^2 \Big)
+\\ &&= \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \hat{\textbf{x}}^T A_\alpha(G_1) \hat{\textbf{x}} + \alpha \sum \limits_{v_i \in N(v_k)}^{} x_i^2 - \alpha d_k x_k^2 \Big)
+\\ &&\leqslant \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \rho_\alpha (G_1) \hat{\textbf{x}}^T \hat{\textbf{x}} + \alpha - \alpha  x_k^2 - \alpha d_k x_k^2 \Big)
+\\ &&= \frac{1}{2} + \frac{1}{2 \rho_\alpha} \Big( \rho_\alpha (G - v_k) (1 - x_k^2) + \alpha - \alpha  x_k^2 - \alpha d_k x_k^2 \Big)
+\end{eqnarray*}
+Which implies
+\begin{eqnarray*}
+  \rho_\alpha (G - v_k) \geqslant \rho_\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} ( \rho_\alpha - \alpha d_k).
+\end{eqnarray*}
+\end{proof}
+
+\begin{lemma} \label{lem:3}
+Let $\alpha \in [0, 1)$, $\textbf{x}$ is the positive eigenvector of $A_\alpha (G)$ corresponding to $\rho _\alpha$  with $\textbf{x}^T \textbf{x} = 1$, $x_k$ is the $k$th component of $\textbf{x}$. Then \\
+\begin{equation} \label{equ:14}
+x_k^2 \leqslant \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2 + (1 - \alpha)^2 d_k}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Since
+\begin{eqnarray*}
+\rho _\alpha x_k = \sum \limits_{i = 1}^{n} a_{ki} x_i = (1 - \alpha) \sum \limits_{v_i \in N(v_k)}^{} x_i + \alpha d_k x_k
+\end{eqnarray*}
+We have
+\begin{eqnarray*}
+ (\rho _\alpha - \alpha d_k)^2 x_k^2
+    &&= (1 - \alpha)^2 \big(\sum \limits_{v_i \in N(v_k)}^{} x_i \big)^2
+    \\ &&\leqslant  (1 - \alpha)^2 d_k \sum \limits_{v_i \in N(v_k)}^{} x_i^2
+    \\ &&\leqslant  (1 - \alpha)^2 d_k (1 - x_k^2)
+\end{eqnarray*}
+That is
+\begin{eqnarray*}
+x_k^2 \leqslant \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2 + (1 - \alpha)^2 d_k}
+\end{eqnarray*}
+\end{proof}
+
+\begin{theorem} \label{the:4}
+Let $\alpha \in [0, 1)$, $v_k$ is a vertex of a connected graph $G$ with degree $d_k$.  Then
+\begin{equation} \label{equ:16}
+\rho _\alpha (G - v_k)
+  \geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{\rho _\alpha - \alpha d_k}
+\end{equation}
+with equality holds if and only if $G \cong K_n$.
+\end{theorem}
+
+\begin{proof}
+$\textbf{x}$ is the positive eigenvector of $A_\alpha (G)$ corresponding to $\rho _\alpha$  with $\textbf{x}^T \textbf{x} = 1$, $x_k$ is the $k$th component of $\textbf{x}$.
+By Lemma \ref {lem:2}, we obtain \\
+\begin{eqnarray} \label{equ:21}
+\rho _\alpha (G - v_k)
+    \geqslant \rho _\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} (\rho _\alpha - \alpha d_k)
+\end{eqnarray}
+By Lemma \ref {lem:3} we get
+\begin{eqnarray} \label{equ:22}
+x_k^2 \leqslant \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2 + (1 - \alpha)^2 d_k}.
+\end{eqnarray}
+\\
+Since $h(x_k) = \frac{x_k^2}{1 - x_k^2} $ is a increasing function on $x_k \in (0, 1)$, $\rho _\alpha - \alpha d_k > 0$ if $\alpha \in [0, 1)$ (by lemma \ref{lem:1}), combining (\ref{equ:21})with (\ref{equ:22}), we have  \\
+\begin{eqnarray*}
+\rho _\alpha (G - v_k)
+  &&\geqslant \rho _\alpha - \alpha - \frac{x_k^2}{1 - x_k^2} (\rho _\alpha - \alpha d_k)
+  \\ &&\geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{(\rho _\alpha - \alpha d_k)^2} (\rho _\alpha - \alpha d_k)  \\
+  \\ &&\geqslant \rho _\alpha - \alpha - \frac{(1 - \alpha)^2 d_k}{\rho _\alpha - \alpha d_k}
+.
+\end{eqnarray*}
+This completes the proof of inequality (\ref{equ:16}).
+
+ By inequality (\ref{equ:16}) and proposition \ref{prop:3}, we get
+\begin{eqnarray*}
+n - 2 &&= \rho_\alpha(K_{n - 1})
+\\ &&\geqslant \rho _\alpha(K_n) - \alpha - \frac{(1 - \alpha)^2 d_k}{\rho _\alpha(K_n) - \alpha d_k}
+\\ &&= (n-1) - \alpha - \frac{(1 - \alpha)^2 (n-1)}{(n-1) - \alpha (n-1)}
+\\ &&= n - 2
+\end{eqnarray*}
+So the equality in (\ref{equ:16})  holds if $G \cong K_n$.
+By the proof of Lemma \ref {lem:2} and Lemma \ref {lem:3}, we know that the equality holds if and only if $G \cong K_n$.
+\end{proof}
+
+By Theorem \ref{the:4}, let $\alpha = 0$ , we have the following corollary.
+\begin{corollary} \label{coro:4}
+Let $v_k$ is a vertex of a connected graph $G$ with degree $d_k$.  Then
+\begin{equation} \label{equ:coro4}
+\rho _1 (A(G - v_k))
+  \geqslant \rho _1(A(G)) - \frac{d_k}{\rho _1(A(G))}
+\end{equation}
+with equality holds if and only if $G \cong K_n$.
+\end{corollary}
+
+By Theorem \ref{the:4}, let $\alpha = \frac{1}{2}$, we have the following corollary.
+\begin{corollary} \label{coro:5}
+Let $v_k$ is a vertex of a connected graph $G$ with degree $d_k$. $Q(G)$  is the signless Laplacian matrix of $G$. Then
+\begin{equation} \label{equ:coro5}
+\rho _1 (Q(G - v_k))
+  \geqslant \rho _1(Q(G)) - 1 - \frac{d_k}{\rho _1(Q(G)) - d_k}
+\end{equation}
+with equality holds if and only if $G \cong K_n$.
+\end{corollary}
+
+
+\begin{proposition} [Corollary 1 of \cite{2019Sharp}] \label{prop:remark1}
+Let $G$ be a connected graph with $n$ vertices. Then
+$$ \rho_1(A(G)) \geqslant max \{ \sqrt{d(v)},  v \in V(G)  \}, $$
+with equality holds if and only if $G = K_{1,n-1}$.
+\end{proposition}
+
+\begin{remark} \label{remark:1}
+By Proposition \ref{prop:remark1}, we have
+\begin{equation*}
+\rho _1(A(G)) - \frac{d_k}{\rho _1(A(G))} > 0.
+\end{equation*}
+By Corollary \ref{coro:4}, we have
+\begin{eqnarray*}
+\rho _1 (A(G - v_k)) 
+&& \geqslant \rho _1(A(G)) - \frac{d_k}{\rho _1(A(G))}.
+\\ && = \sqrt{\rho _1^2(A(G)) - 2d_k + \frac{d_k^2}{\rho _1^2(A(G))}}.
+\end{eqnarray*}
+Hence
+\begin{equation*}
+\rho _1(A(G)) \leqslant \sqrt{\rho _1^2 (A(G - v_k)) + 2 d_k - \frac{d_k^2}{\rho _1^2(A(G))}}.
+\end{equation*}
+ Compare with the bound \cite{2019A} mentioned in the introduction section
+ \begin{equation} \label{equ:bound1}
+ \rho(A(G)) \leqslant \sqrt{\rho^2(A(G - v_k)) + 2 d_k - 1},
+ \end{equation}
+ we can see that Corollary \ref{coro:4} is better than (\ref{equ:bound1}) if $ d_k > \rho _1(A(G))$.
+\end{remark}
+
+
+\section{Concluding remarks}
+
+Theorem \ref{the:1} give the bounds for $\rho_\alpha(G-V_m)$ with expression of many parameters of $A_\alpha$, which is more accurate in some situations but too complicated.
+Theorem \ref{the:0} and Theorem \ref{the:4} study the lower bound of $\rho_\alpha(G-v_k)$, with expression of $\rho_\alpha$, $\alpha$ and $d_k$, which are more concise. Theorem \ref{the:4} is better than Theorem \ref{the:0} for $K_n$, but worse for $K_{1,n-1}$ with $d_k= n-1$. 
+Corollary \ref{coro:4} give a better lower bound than \cite{2019A} if $ d_k > \rho _1(A(G))$, as illustrated in Remark \ref{remark:1}.
+The lower bound of $\rho_\alpha(G-V_m)$ can be enhanced and the upper bound better than $\rho_\alpha$ is yet to be found.
+
+
+\vskip4mm\noindent{\bf Acknowledgements.}
+
+
+ The work was partially supported by the National Natural Science Foundation of China under Grants 11771172,12061039.
+
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{2016Merging}
+\textcolor{blue}{
+V. Nikiforov.
+\newblock Merging the $A$-and $Q$-spectral theories.
+\newblock {Applicable Analysis \& Discrete Mathematics}, 11(1) (2017), 81-107.}
+
+\bibitem{2017SpectraOfTrees}
+\textcolor{blue}{
+V. Nikiforov, G. Past\'{e}n, O. Rojo and R.L. Soto.
+\newblock On the $A_\alpha$-spectra of trees.
+\newblock {Linear Algebra and its Applications}, 520 (2017), 286-305.}
+
+\bibitem{2017PositiveSemidefinitness}
+\textcolor{blue}{
+V. Nikiforov and O. Rojo.
+\newblock A note on the positive semidefinitness of $A_\alpha(G)$.
+\newblock {Linear Algebra and its Applications}, 519 (2017), 156-163.}
+
+\bibitem{2018PendentPaths}
+\textcolor{blue}{
+V. Nikiforov and O. Rojo.
+\newblock On the $\alpha$-index of graphs with pendent paths.
+\newblock {Linear Algebra and its Applications}, 550 (2018), 87-104.}
+
+\bibitem{2019Sharp}
+\textcolor{blue}{
+J.M. Guo, Z.W. Wang, X. Li.
+\newblock Sharp upper bounds of the spectral radius of a graph
+\newblock {Discrete Mathematics}, 2019, 342(9):2559-2563.}
+
+\bibitem{2019A}
+\textcolor{blue}{
+S.~Sun and K.~C. Das.
+\newblock A conjecture on the spectral radius of graphs.
+\newblock {Linear Algebra and its Applications}, 2019, 588.}
+
+\bibitem{2012Bounds}
+\textcolor{blue}{
+L.~Cong, H.~Wang, and P.~V. Mieghem.
+\newblock Bounds for the spectral radius of a graph when nodes are removed.
+\newblock {Linear Algebra and its Applications}, 2012, 437(1):319-323.}
+
+
+\bibitem{1985MatrixAnalysis}
+\textcolor{blue}{
+R. Horn and C. Johnson.
+\newblock Matrix Analysis,
+\newblock {Cambridge University Press, Cambridge}, 1985, xiii+561 pp.}
+
+\bibitem{2001Introduction}
+\textcolor{blue}{
+DB West.
+\newblock Introduction to graph theory - second edition.
+\newblock 2001.}
+
+%\bibitem{2016Merging}
+%\textcolor{blue}{
+%V.~Nikiforov.
+%\newblock Merging the a- and q-spectral theories.
+%\newblock {\em Applicable Analysis \& Discrete Mathematics}, 11(1), 2016.}
+
+
+
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
